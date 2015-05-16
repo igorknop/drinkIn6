@@ -7,8 +7,8 @@ function DrinkIn6() {
     this.button = null;
     this.tbody = null;
     this.init = init;
-    this.addPointsClick = addPointsClick;
     this.addPoints = addPoints;
+    this.delPoints = delPoints;
     this.draw = draw;
 }
 
@@ -18,6 +18,13 @@ function init(document) {
     this.button.addEventListener("click", function (that) {
         return function () {
             that.addPoints(Number(that.input.value));
+            that.draw();
+        };
+    }(this));
+    this.button2 = document.getElementById("del");
+    this.button2.addEventListener("click", function (that) {
+        return function () {
+            that.delPoints();
             that.draw();
         };
     }(this));
@@ -36,31 +43,59 @@ function init(document) {
         };
     }(this));
     this.tbody = document.getElementsByTagName("tbody")[0];
+    this.typeInput = document.getElementById("type");
+    this.typeInput.addEventListener("change", function (that) {
+        return function () {
+            that.type = that.typeInput.value;
+            if(that.type === "points-dec"){
+                that.input.value = that.points;
+            }else{
+                that.input.value = 0;
+            }
+            that.draw();
+        };
+    }(this));
 }
 
-function addPointsClick() {
-}
 
 
 function addPoints(points) {
-    this.inputs.push({
-        "difference": points
-    });
+    this.inputs.push(
+            points
+            );
+}
+
+function delPoints() {
+    this.inputs.pop();
 }
 
 function draw() {
     this.tbody.innerHTML = "";
     var total = 0;
-    for(var i in this.inputs){
+    for (var i in this.inputs) {
         var input = this.inputs[i];
         var inputE = document.createElement("tr");
         var inputDifferenceE = document.createElement("td");
-        inputDifferenceE.innerHTML = input.difference;
-        total+=input.difference;
         var inputQuantityE = document.createElement("td");
-        inputQuantityE.innerHTML = input.difference * Math.round(this.total / this.points);
         var inputValorE = document.createElement("td");
-        inputValorE.innerHTML = total;
+        if (this.type === "difference") {
+            inputDifferenceE.innerHTML = input;
+            inputQuantityE.innerHTML = Math.round(input * this.total / this.points)+" ml";
+            inputValorE.innerHTML = total;
+            total += input;
+        } else if (this.type === "points"){
+            var diff = input - total;
+            total = input;
+            inputDifferenceE.innerHTML = diff;
+            inputQuantityE.innerHTML = Math.round(diff*this.total / this.points)+" ml";
+            inputValorE.innerHTML = total;
+        } else {
+            var diff = this.points - input;
+            total = input;
+            inputDifferenceE.innerHTML = diff;
+            inputQuantityE.innerHTML = Math.round(diff*this.total / this.points)+" ml";
+            inputValorE.innerHTML = total;
+        }
         inputE.appendChild(inputValorE);
         inputE.appendChild(inputDifferenceE);
         inputE.appendChild(inputQuantityE);

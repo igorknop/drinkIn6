@@ -9,14 +9,26 @@
     <body>
         <h1>Bebe em 6</h1>
         <div>
+            <details>
+                <summary>Opções</summary>
+                <div>
+                    <label>Modo: 
+                        <select name="type" id="type">
+                            <option value="points">Pontos (Crescente)</option>
+                            <option value="points-dec">Pontos (Decrescente)</option>
+                            <option value="difference">Diferença</option>
+                        </select></label>
+                </div>
+                <div>
+                    <label>Total: <input type="number" id="total" name="total" value="4200"></label>
+                </div>
+                <div>
+                    <label>Pontos: <input type="number" id="points" name="points" value="66"></label>
+
+                </div>
+            </details>
             <div>
-                <label>Entrada: <input type="number" id="input" name="input" value="0"></label> <button id="add">+</button>
-            </div>
-            <div>
-                <label>Total: <input type="number" id="total" name="total" value="4200"></label>
-            </div>
-            <div>
-                <label>Pontos: <input type="number" id="points" name="points" value="66"></label>
+                <label>Entrada: <input type="number" id="input" name="input" value="0"></label> <button id="add">&#8628;</button><button id="del">&#x21b6;</button>
             </div>
         </div>
         <table>
@@ -31,7 +43,7 @@
             </tbody>
         </table>
         <script>
-            var o = new DrinkIn6(); 
+            var o = new DrinkIn6();
             o.init(document);
         </script>
     </body>
