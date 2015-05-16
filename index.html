@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Bebe em 6</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="drinkIn6.js"></script>
+    </head>
+    <body>
+        <h1>Bebe em 6</h1>
+        <div>
+            <div>
+                <label>Entrada: <input type="number" id="input" name="input" value="0"></label> <button id="add">+</button>
+            </div>
+            <div>
+                <label>Total: <input type="number" id="total" name="total" value="4200"></label>
+            </div>
+            <div>
+                <label>Pontos: <input type="number" id="points" name="points" value="66"></label>
+            </div>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Pontos</th>
+                    <th>Diferença</th>
+                    <th>Quantidade</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <script>
+            var o = new DrinkIn6(); 
+            o.init(document);
+        </script>
+    </body>
+</html>
