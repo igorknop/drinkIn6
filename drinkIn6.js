@@ -60,9 +60,7 @@ function init(document) {
 
 
 function addPoints(points) {
-    this.inputs.push(
-            points
-            );
+    this.inputs.unshift(points);
 }
 
 function delPoints() {

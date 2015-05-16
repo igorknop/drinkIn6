@@ -1,0 +1,53 @@
+html{
+    background: radial-gradient(rgb(200,200,100),rgb(180,180,80));
+    min-height: 400px;
+}
+
+body{
+    background: radial-gradient(hsl(70, 100%, 90%),hsl(60, 77%, 81%));
+    min-height: 400px;
+    width: 100%;
+    padding: 2%;
+    border-radius: 4%;
+    font-family: Arial, sans-serif;
+    margin: auto;
+    font-size: 1.2em;
+}
+input,button,select,label{
+    font-size: 1.3em;
+    height: 2em;
+}
+button{
+    width: 60px;
+    height: 60px;
+}
+input{
+    width: 40%;
+    height: 60px;
+    padding: 0;
+}
+div div{
+    margin: 10px 0;
+}
+table{
+    width: 100%;
+    margin-top: 10px;
+}
+th,td{
+    background: radial-gradient(hsl(60, 77%, 75%), hsl(60, 100%, 44%));    
+    padding: 5px;
+    text-align: center;
+}
+td{
+    background: radial-gradient(hsl(70, 100%, 84%),hsl(60, 77%, 75%));    
+    padding: 5px;
+}
+tbody tr:first-child td{
+    background: radial-gradient(hsl(50, 100%, 64%),hsl(60, 77%, 75%)); 
+    font-weight: bold;
+}
+@media screen and (min-width: 400px){
+    body{
+        width: 400px;
+    }
+}
