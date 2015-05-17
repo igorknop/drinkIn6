@@ -45,6 +45,14 @@ tbody tr:first-child td{
     background: radial-gradient(hsl(50, 100%, 64%),hsl(60, 77%, 75%)); 
     font-weight: bold;
 }
+
+p,a {
+    text-decoration: none;
+    color: black;
+    font-size: 0.8em;
+    text-align: center;
+    margin-top: 50px;
+}
 @media screen and (min-width: 400px){
     body{
         width: 400px;
