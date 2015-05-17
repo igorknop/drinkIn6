@@ -20,7 +20,6 @@ body{
 input,button,select,label{
     font-size: 1.3em;
     height: 2em;
-    width: 20%;
 }
 button{
     width: 15%;
